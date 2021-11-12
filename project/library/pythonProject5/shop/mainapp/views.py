@@ -13,8 +13,8 @@ class ProductDetailView(DetailView):
     }
 
     def dispatch(self, request, *args, **kwargs):
-        ct_model= kwargs.get('ct_model')
-        self.model =self.CT_MODEL_MODEL_CLASS[kwargs['ct_model']]
+        # ct_model= kwargs.get('ct_model')
+        self.model = self.CT_MODEL_MODEL_CLASS[kwargs['ct_model']]
         self.queryset = self.model._base_manager.all()
         return super().dispatch(request, *args, **kwargs)
     #model=Model

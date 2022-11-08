@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>SitePal Example</title>
+	<link rel="stylesheet" href="main.css" type="text/css">
+	<script language="JavaScript">
+	function vh_portalReady(portal)
+	{
+		alert("portal " + portal + " has loaded");
+	}
+	</script>
+</head>
+
+<body>
+	<!-- ******************************* SITEPAL EMBED CODE START  ***********************  -->
+	<script type="text/javascript" src="//vhss-d.oddcast.com/vhost_embed_functions_v4.php?acc=3432155&js=0"></script><script type="text/javascript">AC_VHost_Embed(3432155,300,400,'',1,1, 2722673, 1,1,1,'e78239bce55a91edb12eb6bb8581c22e',0);</script>
+
+	<!-- ******************************* SITEPAL EMBED CODE END  ***********************  -->
+	<script type="text/javascript">
+		// Example:
+		// Imitating thoughtful gaze on system response
+
+		// 315 - set avatar eyes on 11 oclock
+		// 45  - - set avatar eyes on 13 oclock
+		const gazePositions = [315, 45]
+
+		// Func for random choise from list 
+		function choose(choices) {
+			var index = Math.floor(Math.random() * choices.length);
+			return choices[index];
+		}
+
+		// Imitate thoughtful gaze on button click
+		// TODO: Execute setGaze during system answer
+		addEventListener('click', (event) => {
+			curPos = choose(gazePositions)
+			console.log('Current gaze position: ' + curPos)
+			setGaze(curPos, 5, 75)
+		});
+	</script>
+	<br>
+	<table>
+		<tr>
+			<th>Scenarios</th>
+			<th>Buttons with pre-downloaded audio</th>
+			<th>Buttons with TTS function</th>
+		</tr>
+		<tr>
+			<td>Welcome Anna(ge)</td>
+			<td><a class="selected_support" href="javascript:sayAudio('pcare-demo-anna');">sayAudio('Anna')</a><br></td>
+			<td><a class="selected_support"
+					href="javascript:sayText('Hallo! Sie werden von der PatientCare-Projektassistentin begrüßt. Ich freue mich sehr, Sie zu sehen! Mein Ziel ist es, Ihnen nicht langweilen zu lassen, Ihre gute Laune beizubehalten oder sie zu verbessern, wenn Sie traurig oder verstimmt sind. Wenn Sie wissen möchten, wie spät es ist oder wie das Wetter morgen sein wird, bin ich zu Ihren Diensten! Ich hoffe, dass wir von jetzt an gute Nachbarn und Freunde werden. Ich werde Ihnen jeden Tag rund um die Uhr helfen - und gleichzeitig helfen Sie mir, wenn Sie mit mir kommunizieren, besser zu werden. Los geht',3,3,4)">sayText('Anna',3,3,4)</a>
+			</td>
+
+		</tr>
+		<tr>
+			<td>Welcome Julie(en)</td>
+			<td><a class="selected_support"
+					href="javascript:sayAudio('pcare-demo-julie-welcom');">sayAudio('Julie')</a><br></td>
+			<td><a class="selected_support"
+					href="javascript:sayText('Hello! The assistant of the PatientCare project welcomes you. Glad to see you! My goal is not to let you get bored, maintain your good mood, or improve it if you are sad or upset. If you want to know what time it is or what the weather will be tomorrow, I am at your service! I hope that from now on we will become good neighbors and friends. I will help you around the clock, every day, and at the same time, by communicating with me, you will help me become better. Come on!',3,1,3)">sayText('Julie',3,1,3)</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Julie phrase1(long)</td>
+			<td><a class="selected_support"
+					href="javascript:sayAudio('pcare-demo-julie-long');">sayAudio('Julie-long-phrase1')</a><br></td>
+			<td><a class="selected_support"
+					href="javascript:sayText('Greetings to the most wonderful person I know! From now on, I will become not only your personal assistant, but also a true friend who will always help and cheer you up. I see you're bored? I suggest you play an interesting game “Guess what I see”',3,1,3)">sayText('Julie',3,1,3)</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Julie phrase2(short)</td>
+			<td><a class="selected_support"
+					href="javascript:sayAudio('pcare-demo-julie-scen1');">sayAudio('Julie-short-phrase2')</a><br></td>
+			<td><a class="selected_support"
+					href="javascript:sayText('Hello. I am glad to meet you, what is your name?',3,1,3)">sayText('Julie',3,1,3)</a>
+			</td>
+		</tr>
+		<tr>
+			<td>Julie phrase3(short)</td>
+			<td><a class="selected_support"
+					href="javascript:sayAudio('pcare-demo-julie-scen2');">sayAudio('Julie-short-phrase3')</a><br></td>
+			<td><a class="selected_support"
+					href="javascript:sayText('Ray Bradbury is the author of Fahrenheit 451, Dandelion Wine?',3,1,3)">sayText('Julie',3,1,3)</a>
+			</td>
+		</tr>
+	</table>
+	<div class="outer">
+		<span class="before"></span>
+		<span class="inner">
+			<td align="left" class="feature_entire_heading ">
+				<p class="content">
+					<b>Speech Functions:</b><br>
+
+					<a class="selected_support" href="javascript:replay();">replay()</a> <br>
+					<a class="selected_support" href="javascript:stopSpeech();">stopSpeech()</a><br><br>
+				</p>
+			</td>
+		</span>
+	</div>
+
+	<div class="outer">
+		<span class="inner">
+			Silent mock speech
+			<a class="selected_support" href="javascript:saySilent(60);">saySilent(60)</a>.<br>
+			</a>
+			<form name="myForm" class="form">
+				<li>Letting the user enter the text in a form:&nbsp;<br>
+					<input type="text" name="textToSay" size="20" class="form-control w-50 d-inline">
+					<input type="button" value="Say It!" name="SayButton"
+						onClick="javascript:sayText(myForm.textToSay.value,3,1,3);" class="btn d-inline">
+					<p id="timeDisplay"></p>
+			</form>
+			<script language="JavaScript">
+				// Triggered when an audio preload is done, and returns the name of the audio that was provided as input to ‘loadAudio()’.
+				function vh_audioLoaded(args) {
+					//loaded audio =  args
+					//alert('The audio "' +args+ '" is loaded');
+					sayAudio(args);
+				}
+			</script>
+		</span>
+	</div>
+</body>
+
+</html>
